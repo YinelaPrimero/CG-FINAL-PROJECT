@@ -27,11 +27,14 @@ public class Mov3Person : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         Movimiento();
+        animator.SetFloat("VelX",X);
+        animator.SetFloat("VelZ",Z);
       
     }
 
