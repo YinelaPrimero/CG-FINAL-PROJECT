@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour
+
+public class Slot : MonoBehaviour, IPointerClickHandler
 {
     public GameObject item;
 
@@ -36,4 +38,18 @@ public class Slot : MonoBehaviour
     {
         
     }
+
+    public void UsarItem()
+    {
+        Debug.Log("Estoy llamando la funcion de usar item");
+        item.GetComponent<Item>().UsoItem();
+    }
+
+    public void OnPointerClick(PointerEventData pointerEvenData)
+    {
+        Debug.Log("Se supone que se elije item");
+        UsarItem();
+    }
+
+
 }
