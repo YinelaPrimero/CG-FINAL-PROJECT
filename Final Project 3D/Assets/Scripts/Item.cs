@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
 
     [HideInInspector]
     public GameObject arma;
+    public GameObject linterna;
 
     private int cantidadArmas;
 
@@ -43,7 +44,8 @@ public class Item : MonoBehaviour
             if(controladorArmas.transform.GetChild(i).gameObject.GetComponent<Item>().Id==Id)
             {
                 arma = controladorArmas.transform.GetChild(i).gameObject;
-                Debug.Log("Cogi la referencia de arma");
+                linterna = controladorArmas.transform.GetChild(i).gameObject;
+                Debug.Log("Cogi la referencia de arma y linterna");
             }
         }
 
@@ -62,6 +64,7 @@ public class Item : MonoBehaviour
             if(equipado == false)
             {
                 gameObject.SetActive(false);
+                animPersonaje.SetBool("Armado", false);
             }
 
         }
@@ -74,6 +77,13 @@ public class Item : MonoBehaviour
         {
             arma.SetActive(true);
             arma.GetComponent<Item>().equipado = true;
+            animPersonaje.SetBool("Armado", true);
+        }
+
+        if(tipo == "Supervivencia")
+        {
+            linterna.SetActive(true);
+            linterna.GetComponent<Item>().equipado = true;
             animPersonaje.SetBool("Armado", true);
         }
 

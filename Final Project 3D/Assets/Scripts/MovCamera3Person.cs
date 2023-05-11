@@ -13,6 +13,7 @@ public class MovCamera3Person : MonoBehaviour
 
     [SerializeField] private float smoothTime = 0.2f;
     [SerializeField] private Vector2 MaxMinRota = new Vector2(-20, 40);
+    [SerializeField] private Vector2 MaxMinRotacion = new Vector2(90,270);
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class MovCamera3Person : MonoBehaviour
         rotY += mouseX;
 
         rotX = Mathf.Clamp(rotX, MaxMinRota.x, MaxMinRota.y);
+        rotY = Mathf.Clamp(rotY, MaxMinRotacion.x, MaxMinRotacion.y);
 
         Vector3 nextRotation = new Vector3(rotX, rotY);
 
