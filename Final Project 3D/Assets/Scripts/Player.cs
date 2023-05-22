@@ -19,13 +19,6 @@ public class Player : MonoBehaviour
     {
         
     }
-
-    void OnTriggerEnter(Collider Colli){
-        if(Colli.CompareTag("ArmaEnemigo")){
-            RecibirDaño();
-        }
-    }
-
     public void RecibirDaño(){
         VidaPersonaje -= 5f;
         print("Daño recibido, vida actual: "+VidaPersonaje);
