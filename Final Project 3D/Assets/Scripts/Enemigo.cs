@@ -41,7 +41,7 @@ public class Enemigo : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, target.transform.position) > radioVision)
         {
-            agente.enabled = false;
+            agente.enabled = true;
             animator.SetBool("Run", false);
 
             cronometro += Time.deltaTime;
@@ -71,7 +71,6 @@ public class Enemigo : MonoBehaviour
         }
         else
         {
-            agente.enabled = true;
             agente.SetDestination(target.transform.position);
 
             if (Vector3.Distance(transform.position, target.transform.position) > distanciaAtaque && !atacando)
@@ -91,14 +90,12 @@ public class Enemigo : MonoBehaviour
             }
         }
 
-        if (!atacando && !isMovingToTarget)
-        {
-            agente.enabled = false;
-        }
+    
     }
 
     public void FinalAni()
     {
+        
         if (Vector3.Distance(transform.position, target.transform.position) > distanciaAtaque + 0.2f)
         {
             animator.SetBool("Atack", false);
